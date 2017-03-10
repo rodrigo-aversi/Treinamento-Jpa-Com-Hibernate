@@ -23,6 +23,7 @@ public class Conta {
 	private String banco;
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date dataCriacao;
+	private String novoAtributoQualquer;
 	
 	private Long dataGravadaComoLong;
 	
@@ -38,6 +39,20 @@ public class Conta {
 		this.dataGravadaComoLong = dataGravadaComoLong;
 	}
 	
+	
+	
+	public Conta(String titular, Integer agencia, String numero, String banco, Date dataCriacao,
+			String novoAtributoQualquer, Long dataGravadaComoLong) {
+		super();
+		this.titular = titular;
+		this.agencia = agencia;
+		this.numero = numero;
+		this.banco = banco;
+		this.dataCriacao = dataCriacao;
+		this.novoAtributoQualquer = novoAtributoQualquer;
+		this.dataGravadaComoLong = dataGravadaComoLong;
+	}
+
 	public DateTime pegarDataLongComoDateTime() {
 		return new DateTime(this.dataGravadaComoLong, DateTimeZone.forID("America/Sao_Paulo"));
 	}
@@ -45,9 +60,13 @@ public class Conta {
 	@Override
 	public String toString() {
 		return "Conta [id=" + id + ", titular=" + titular + ", agencia=" + agencia + ", numero=" + numero + ", banco="
-				+ banco + ", dataCriacao=" + dataCriacao + ", dataGravadaComoLong=" + dataGravadaComoLong + "]";
+				+ banco + ", dataCriacao=" + dataCriacao + ", novoAtributoQualquer=" + novoAtributoQualquer
+				+ ", dataGravadaComoLong=" + dataGravadaComoLong + "]";
 	}
 
 	
+
+	
+
 }
 
