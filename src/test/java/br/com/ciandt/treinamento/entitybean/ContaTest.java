@@ -15,7 +15,7 @@ public class ContaTest {
 	final static Logger logger = Logger.getLogger(ContaTest.class);
 	
 	@Test
-	public void testMyFirst() {
+	public void testeGerandoBancoDeDadosGravandoDados() {
 		
 		Date currentDate = new Date();
 		DateTime dataAtualização = new DateTime(2017, 4, 1, 10, 0, DateTimeZone.forID("America/Sao_Paulo"));
@@ -30,6 +30,9 @@ public class ContaTest {
 		entityManager.getTransaction().commit();
 		logger.info("Conta criada " + conta);
 		entityManager.close();
+		
+		// Atenção aos logs de aplicação, ele mostra a comunicação com o banco de dados.
+		// Usar <property name="hibernate.hbm2ddl.auto" value="create" /> no persistence.xml.
 
 	}
 
