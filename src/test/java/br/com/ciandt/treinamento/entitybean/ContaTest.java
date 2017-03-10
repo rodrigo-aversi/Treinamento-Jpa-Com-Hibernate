@@ -25,8 +25,7 @@ public class ContaTest {
 		
 		Conta conta = new Conta("FULANO DE TAL", 123, "123345678", "XPTO", currentDate, dataAtualização.getMillis());
 
-		EntityManager entityManager = Persistence.createEntityManagerFactory(
-				"tarefas").createEntityManager();
+		EntityManager entityManager = JPAUtils.getEntityManager();
 		
 		long startDate = System.currentTimeMillis();
 
@@ -70,7 +69,6 @@ public class ContaTest {
 	}
 	
 	@Test
-	@Ignore
 	public void testeExemploHibernateHbm2ddlAutoUpdate() {
 		
 		Date currentDate = new Date();
@@ -78,12 +76,15 @@ public class ContaTest {
 		
 		Conta conta = new Conta("FULANO DE TAL", 123, "123345678", "XPTO", currentDate, "novo atributo qualquer", dataAtualização.getMillis());
 
-		EntityManager entityManager = Persistence.createEntityManagerFactory(
-				"tarefas").createEntityManager();
-
+		EntityManager entityManager = JPAUtils.getEntityManager();
+		long startDate = System.currentTimeMillis();
 		entityManager.getTransaction().begin();
 		entityManager.persist(conta);
 		entityManager.getTransaction().commit();
+		
+		long endDate = System.currentTimeMillis();
+		System.out.println("Tempo total gasto - " + (startDate - endDate) + " milisegundos");
+		
 		logger.info("Conta criada " + conta);
 		entityManager.close();
 		
