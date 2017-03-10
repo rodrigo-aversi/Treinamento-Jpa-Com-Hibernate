@@ -56,6 +56,14 @@ public class Conta {
 	public DateTime pegarDataLongComoDateTime() {
 		return new DateTime(this.dataGravadaComoLong, DateTimeZone.forID("America/Sao_Paulo"));
 	}
+	
+	public void atualizarTitular(String titular) {
+		this.titular = titular;
+	}
+	
+	public void setId(Long id) {
+		this.id = id;
+	}
 
 	@Override
 	public String toString() {
